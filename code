@@ -1,0 +1,5 @@
+pwd
+codeblocks client_t.cpp  new.cpp client.cpp redisOperat.cpp udpSocket.cpp &
+x-terminal-emulator ./new
+x-terminal-emulator ./new
+

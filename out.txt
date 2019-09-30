@@ -1,0 +1,63 @@
+ar -rc libcolib.a.tmp co_epoll.o co_routine.o co_hook_sys_call.o coctx_swap.o coctx.o ; if [ $? -ne 0 ]; then exit 1; fi; test -d ./lib || mkdir -p ./lib; mv -f libcolib.a.tmp ./lib/libcolib.a; 
+g++ -fPIC -shared -O2 -pipe -L./solib/ -o  libcolib.so.tmp co_epoll.o co_routine.o co_hook_sys_call.o coctx_swap.o coctx.o ; if [ $? -ne 0 ]; then exit 1; fi; test -d ./solib || mkdir -p ./solib; mv -f libcolib.so.tmp ./solib/libcolib.so; 
+g++ -g -o new new.o -L./lib -g -L./lib -lcolib -lpthread -ldl 
+------------------------------
+create thread...
+listener.thread.created
+read
+check user num.stop
+stop0
+init complete.
+ac.fd=-------------------------7
+stop.end:0
+check user num.end
+eventSourceFunc.checkUserNum.end
+thread0
+thread.runFunc.eventloop
+co_poll.end
+read.datain------
+eventSourceFunc.addNewFd
+addNewFd0
+-------------add node 
+clientInit
+client_t.clientRun.mfd=7
+recv login_t...
+addNewNode.end
+read
+check user num.end
+eventSourceFunc.checkUserNum.end
+recv.ended
+7
+recv login_t end
+no name client exit
+send refused-------
+user offline
+check user num.stop
+stop0
+ac.fd=-------------------------8
+stop.end:0
+check user num.end
+client_t.destroy.close:7
+co_poll.end
+read.datain------
+eventSourceFunc.addNewFd
+addNewFd0
+-------------add node 
+clientInit
+client_t.clientRun.mfd=8
+recv login_t...
+addNewNode.end
+read
+check user num.end
+eventSourceFunc.checkUserNum.end
+recv.ended
+8
+recv login_t end
+no name client exit
+send refused-------
+user offline
+check user num.stop
+stop0
+ac.fd=-------------------------9
+stop.end:0
+check user num.end
